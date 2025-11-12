@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn | Anthropology of Cosmos</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: radial-gradient(circle at bottom, #000814, #001d3d);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      min-height: 100vh;
+      padding-top: 70px;
+    }
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.85);
+      box-shadow: 0 2px 10px rgba(0, 200, 255, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      color: #48cae4 !important;
+      letter-spacing: 1px;
+    }
+
+    .nav-link {
+      color: #f8f9fa !important;
+      margin-right: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #48cae4 !important;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px #48cae4;
+      font-weight: 600;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #caf0f8;
+      transition: transform .3s ease, box-shadow .3s ease;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,200,255,0.2);
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .btn-theme {
+      background: transparent;
+      border: 1.5px solid #00b4d8;
+      color: #00b4d8;
+      border-radius: 50px;
+      padding: 6px 18px;
+      transition: all .3s;
+      font-size: 0.9rem;
+    }
+
+    .btn-theme:hover {
+      background: #00b4d8;
+      color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      margin-top: 40px;
+      background-color: rgba(0,0,0,0.8);
+      font-size: 0.9rem;
+    }
+
+    .modal-content {
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid #00b4d8;
+      color: #caf0f8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Anthropology of Cosmos</a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="learn.html">Learn</a></li>
+          <li class="nav-item"><a class="nav-link" href="explore.html">Explore</a></li>
+          <li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Explore the Wonders of the Cosmos</h1>
+    <div class="row g-4">
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3">
+          <img src="Blackholes.jpg" alt="Black Holes" class="card-img-top">
+          <h5 class="card-title mt-2">Black Holes</h5>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#descModal" onclick="loadDescription('Black Holes', 'A region in space where gravity is so intense that nothing, not even light, can escape.')">Description</button>
+            <a href="https://www.youtube.com/watch?v=e-P5IFTqB98" target="_blank" class="btn btn-theme">Watch Video</a>
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#quizModal" onclick="loadQuiz('Black Holes')">Take Quiz</button>
+            <a href="https://science.nasa.gov/astrophysics/focus-areas/black-holes/" target="_blank" class="btn btn-theme">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3">
+          <img src="Galaxy.jpg" alt="Galaxies" class="card-img-top">
+          <h5 class="card-title mt-2">Galaxies</h5>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#descModal" onclick="loadDescription('Galaxies', 'Vast systems of stars, planets, and dust bound together by gravity.')">Description</button>
+            <a href="https://www.youtube.com/watch?v=1Q5ZX5W9TJY" target="_blank" class="btn btn-theme">Watch Video</a>
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#quizModal" onclick="loadQuiz('Galaxies')">Take Quiz</button>
+            <a href="https://science.nasa.gov/galaxies/" target="_blank" class="btn btn-theme">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3">
+          <img src="TimeDilation.jpg" alt="Time Dilation" class="card-img-top">
+          <h5 class="card-title mt-2">Time Dilation</h5>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#descModal" onclick="loadDescription('Time Dilation', 'A phenomenon where time runs slower near strong gravity or at high speeds, predicted by relativity.')">Description</button>
+            <a href="https://www.youtube.com/watch?v=BHIo6qwJarI" target="_blank" class="btn btn-theme">Watch Video</a>
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#quizModal" onclick="loadQuiz('Time Dilation')">Take Quiz</button>
+            <a href="https://einstein.stanford.edu/content/relativity/a11332.html" target="_blank" class="btn btn-theme">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3">
+          <img src="Big Bang.jpg" alt="Big Bang" class="card-img-top">
+          <h5 class="card-title mt-2">Big Bang</h5>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#descModal" onclick="loadDescription('Big Bang', 'The event marking the origin of our universe about 13.8 billion years ago.')">Description</button>
+            <a href="https://www.youtube.com/watch?v=wNDGgL73ihY" target="_blank" class="btn btn-theme">Watch Video</a>
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#quizModal" onclick="loadQuiz('Big Bang')">Take Quiz</button>
+            <a href="https://science.nasa.gov/astrophysics/focus-areas/how-did-the-universe-begin-and-evolve/" target="_blank" class="btn btn-theme">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3">
+          <img src="Dark Matter.jpg" alt="Dark Matter" class="card-img-top">
+          <h5 class="card-title mt-2">Dark Matter</h5>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#descModal" onclick="loadDescription('Dark Matter', 'Dark matter is the invisible glue that holds the universe together. This mysterious material is all around us, making up most of the matter in the universe.')">Description</button>
+            <a href="https://www.youtube.com/watch?v=QAa2O_8wBUQ" target="_blank" class="btn btn-theme">Watch Video</a>
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#quizModal" onclick="loadQuiz('Dark Matter')">Take Quiz</button>
+            <a href="https://science.nasa.gov/dark-matter/" target="_blank" class="btn btn-theme">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3">
+          <img src="Dark Energy.jpg" alt="Dark Energy" class="card-img-top">
+          <h5 class="card-title mt-2">Dark Energy</h5>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#descModal" onclick="loadDescription('Dark Energy', 'Some 13.8 billion years ago, the universe began with a rapid expansion we call the big bang. After this initial expansion, which lasted a fraction of a second, gravity started to slow the universe down. But the cosmos wouldn’t stay this way. Nine billion years after the universe began, its expansion started to speed up, driven by an unknown force that scientists have named dark energy.')">Description</button>
+            <a href="https://www.youtube.com/watch?v=fX_1pM64uUk" target="_blank" class="btn btn-theme">Watch Video</a>
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#quizModal" onclick="loadQuiz('Dark Energy')">Take Quiz</button>
+            <a href="https://science.nasa.gov/dark-energy/" target="_blank" class="btn btn-theme">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3">
+          <img src="Wormholes.jpg" alt="Wormholes" class="card-img-top">
+          <h5 class="card-title mt-2">Wormholes</h5>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#descModal" onclick="loadDescription('Wormholes', 'Imagine a tunnel-like structure connecting distant points in space-time to create a faster route in the universe. That’s what is a wormhole.')">Description</button>
+            <a href="https://www.youtube.com/watch?v=v5C8slZeBMI" target="_blank" class="btn btn-theme">Watch Video</a>
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#quizModal" onclick="loadQuiz('Worm Holes')">Take Quiz</button>
+            <a href="https://astronomyexplained.com/what-is-a-wormhole-your-ultimate-guide-to-wormholes/" target="_blank" class="btn btn-theme">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3">
+          <img src="Nebula.jpg" alt="Nebula" class="card-img-top">
+          <h5 class="card-title mt-2">Nebulae</h5>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#descModal" onclick="loadDescription('Nebulae', 'A nebula is a giant cloud of dust and gas in space. Some nebulae (more than one nebula) come from the gas and dust thrown out by the explosion of a dying star, such as a supernova. Other nebulae are regions where new stars are beginning to form.')">Description</button>
+            <a href="https://www.youtube.com/watch?v=VFXJnbnN5ro" target="_blank" class="btn btn-theme">Watch Video</a>
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#quizModal" onclick="loadQuiz('Nebulae')">Take Quiz</button>
+            <a href="https://spaceplace.nasa.gov/nebula/en/" target="_blank" class="btn btn-theme">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3">
+          <img src="Exoplanets.jpg" alt="ExoPlanets" class="card-img-top">
+          <h5 class="card-title mt-2">ExoPlanets</h5>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#descModal" onclick="loadDescription('Exo Planets', 'An exoplanet is any planet beyond our solar system. Most of them orbit other stars, but some free-floating exoplanets, called rogue planets, are untethered to any star.')">Description</button>
+            <a href="https://www.youtube.com/watch?v=d-TtwCLg9_Q" target="_blank" class="btn btn-theme">Watch Video</a>
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#quizModal" onclick="loadQuiz('ExoPlanets')">Take Quiz</button>
+            <a href="https://science.nasa.gov/exoplanets/" target="_blank" class="btn btn-theme">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3">
+          <img src="Gravitational Waves.jpg" alt="Gravitational Waves" class="card-img-top">
+          <h5 class="card-title mt-2">Gravitational Waves</h5>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#descModal" onclick="loadDescription('Gravitational Waves', 'A gravitational wave is an invisible (yet incredibly fast) ripple in space. Gravitational waves travel at the speed of light (186,000 miles per second). These waves squeeze and stretch anything in their path as they pass by.')">Description</button>
+            <a href="https://www.youtube.com/watch?v=QAa2O_8wBUQ" target="_blank" class="btn btn-theme">Watch Video</a>
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#quizModal" onclick="loadQuiz('Gravitational Waves')">Take Quiz</button>
+            <a href="https://www.youtube.com/watch?v=hhbMpe17fzA" target="_blank" class="btn btn-theme">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3">
+          <img src="SuperNova.jpg" alt="SuperNova" class="card-img-top">
+          <h5 class="card-title mt-2">SuperNova</h5>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#descModal" onclick="loadDescription('SuperNova', 'A supernova is the biggest explosion that humans have ever seen. Each blast is the extremely bright, super-powerful explosion of a star.')">Description</button>
+            <a href="" target="_blank" class="btn btn-theme">Watch Video</a>
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#quizModal" onclick="loadQuiz('SuperNova')">Take Quiz</button>
+            <a href="https://www.youtube.com/watch?v=YIKXvDlf8_0 target="_blank" class="btn btn-theme">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3">
+          <img src="Cosmic microwave.jpg" alt="Cosmic Microwaves" class="card-img-top">
+          <h5 class="card-title mt-2">Cosmic Microwaves</h5>
+          <div class="d-flex flex-column gap-2 mt-2">
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#descModal" onclick="loadDescription('Cosmic Microwaves', 'or the first 380,000 years or so after the Big Bang, the entire universe was a hot soup of particles and photons, too dense for light to travel very far. However, as the cosmos expanded, it cooled and became transparent. Light from that transition could now travel freely, and we see a lot of it today. This light is called the cosmic microwave background (CMB).')">Description</button>
+            <a href="https://www.youtube.com/watch?v=3tCMd1ytvWg" target="_blank" class="btn btn-theme">Watch Video</a>
+            <button class="btn btn-theme" data-bs-toggle="modal" data-bs-target="#quizModal" onclick="loadQuiz('Cosmic Microwaves')">Take Quiz</button>
+            <a href="https://www.cfa.harvard.edu/research/topic/cosmic-microwave-background" target="_blank" class="btn btn-theme">Explore More</a>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+
+  <div class="modal fade" id="descModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-3">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="descTitle">Topic Title</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p id="descText"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="quizModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-3">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="quizTitle">Topic Quiz</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="quizForm" onsubmit="checkAnswers(event)">
+            <p>1️⃣ What is the speed of light?</p>
+            <input type="radio" name="q1" value="a"> 300,000 km/s<br>
+            <input type="radio" name="q1" value="b"> 150,000 km/s<br>
+
+            <p class="mt-3">2️⃣ Who proposed General Relativity?</p>
+            <input type="radio" name="q2" value="a"> Isaac Newton<br>
+            <input type="radio" name="q2" value="b"> Albert Einstein<br>
+
+            <button type="submit" class="btn btn-theme mt-3">Submit Quiz</button>
+          </form>
+          <p id="quizResult" class="mt-3 fw-bold text-info"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Anthropology of Cosmos | Learn Page</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function loadDescription(title, text) {
+      document.getElementById("descTitle").textContent = title;
+      document.getElementById("descText").textContent = text;
+    }
+
+    function loadQuiz(topic) {
+      document.getElementById("quizTitle").textContent = topic + " | Quiz";
+      document.getElementById("quizResult").textContent = "";
+      document.getElementById("quizForm").reset();
+    }
+
+    function checkAnswers(e) {
+      e.preventDefault();
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      let score = 0;
+      if (q1 && q1.value === "a") score++;
+      if (q2 && q2.value === "b") score++;
+      document.getElementById("quizResult").textContent = `You scored ${score}/2`;
+    }
+  </script>
+</body>
+</html>

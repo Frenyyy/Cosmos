@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore | Anthropology of Cosmos</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: radial-gradient(circle at bottom, #000814, #001d3d);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      padding-top: 80px;
+    }
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.85);
+      box-shadow: 0 2px 10px rgba(0, 200, 255, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      color: #48cae4 !important;
+    }
+
+    .nav-link {
+      color: #f8f9fa !important;
+      margin-right: 15px;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #48cae4 !important;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px #48cae4;
+    }
+
+    .search-bar {
+      max-width: 500px;
+      margin: 0 auto 30px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #caf0f8;
+      transition: transform .3s ease, box-shadow .3s ease;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,200,255,0.2);
+    }
+
+    .btn-theme {
+      background: transparent;
+      border: 1.5px solid #00b4d8;
+      color: #00b4d8;
+      border-radius: 50px;
+      padding: 6px 18px;
+      transition: all .3s;
+    }
+
+    .btn-theme:hover {
+      background: #00b4d8;
+      color: #000;
+    }
+
+    .response-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 15px;
+      border-radius: 10px;
+      min-height: 80px;
+      color: #90e0ef;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      margin-top: 50px;
+      background-color: rgba(0,0,0,0.8);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Anthropology of Cosmos</a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="learn.html">Learn</a></li>
+          <li class="nav-item"><a class="nav-link active" href="explore.html">Explore</a></li>
+          <li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Explore & Research the Cosmos</h1>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" class="form-control text-center" placeholder="Search a cosmic topic...">
+    </div>
+
+    <div id="results" class="row g-4"></div>
+
+    <div class="mt-5">
+      <h4 class="text-center text-info">Have a Question?</h4>
+      <div class="input-group mt-3">
+        <input type="text" id="userQuestion" class="form-control" placeholder="Ask anything about space...">
+        <button class="btn btn-theme" onclick="getResponse()">Ask</button>
+      </div>
+      <div id="response" class="response-box mt-3"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Anthropology of Cosmos | Explore Page</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const topics = [
+      { title: "Black Holes", desc: "Regions in space where gravity is so strong that nothing can escape.", link: "https://science.nasa.gov/black-holes/" },
+      { title: "Dark Matter", desc: "Invisible mass that holds galaxies together.", link: "https://science.nasa.gov/dark-matter/" },
+      { title: "Dark Energy", desc: "A mysterious force driving the universe's accelerated expansion.", link: "https://science.nasa.gov/dark-energy/" },
+      { title: "Galaxies", desc: "Massive collections of stars, gas, and dust bound by gravity.", link: "https://science.nasa.gov/galaxies/" },
+      { title: "Wormholes", desc: "Hypothetical tunnels in spacetime connecting distant regions.", link: "https://en.wikipedia.org/wiki/Wormhole" },
+      { title: "Exoplanets", desc: "Planets beyond our Solar System orbiting other stars.", link: "https://science.nasa.gov/exoplanets/" },
+      { title: "Nebulae", desc: "Vast clouds of gas and dust where stars are born.", link: "https://science.nasa.gov/nebulae/" },
+      { title: "Supernovae", desc: "Explosive deaths of massive stars releasing immense energy.", link: "https://science.nasa.gov/supernovae/" }
+    ];
+
+    const resultsDiv = document.getElementById("results");
+    const searchInput = document.getElementById("searchInput");
+
+    function displayTopics(filtered) {
+      resultsDiv.innerHTML = "";
+      filtered.forEach(topic => {
+        const card = `
+          <div class="col-md-3 col-sm-6">
+            <div class="card text-center p-3">
+              <h5 class="card-title">${topic.title}</h5>
+              <p class="card-text small">${topic.desc}</p>
+              <a href="${topic.link}" target="_blank" class="btn btn-theme">Read More</a>
+            </div>
+          </div>`;
+        resultsDiv.innerHTML += card;
+      });
+    }
+
+    searchInput.addEventListener("input", () => {
+      const q = searchInput.value.toLowerCase();
+      const filtered = topics.filter(t => t.title.toLowerCase().includes(q));
+      displayTopics(filtered);
+    });
+
+    displayTopics(topics);
+
+    function getResponse() {
+      const userQ = document.getElementById("userQuestion").value.toLowerCase();
+      const resDiv = document.getElementById("response");
+      if (!userQ) return (resDiv.textContent = "Please ask a question!");
+      
+      if (userQ.includes("black hole")) resDiv.textContent = "Black holes form when massive stars collapse under their gravity, creating a singularity.";
+      else if (userQ.includes("dark matter")) resDiv.textContent = "Dark matter doesn't emit light — scientists detect it through its gravitational effects on galaxies.";
+      else if (userQ.includes("galaxy")) resDiv.textContent = "A galaxy is a huge system of stars, gas, and dust. The Milky Way is our home galaxy!";
+      else if (userQ.includes("wormhole")) resDiv.textContent = "Wormholes are theoretical shortcuts through spacetime, but none have been observed yet.";
+      else resDiv.textContent = "That's a fascinating question! Try searching your topic above for more insights.";
+    }
+  </script>
+</body>
+</html>
